@@ -1,0 +1,2112 @@
+# QUIZQUEST — COMPLETE PREMIUM UI REDESIGN
+
+## 1. YOUR ROLE
+
+Act as a senior UI/UX designer, design systems architect, frontend engineer, and visual design specialist.
+
+Your task is to redesign my existing QuizQuest web application into a premium, polished, visually distinctive quiz gaming platform.
+
+The visual direction must closely follow the provided QuizQuest reference mockup:
+
+* Deep burgundy and crimson red.
+* Rich antique gold.
+* Warm ivory and cream backgrounds.
+* Elegant editorial typography.
+* Premium trophy and achievement visuals.
+* Sophisticated cards with subtle depth.
+* Refined buttons, icons, spacing, and animations.
+* A cohesive gaming identity that feels expensive and professionally art-directed.
+
+This must look like a finished commercial product, not a generic AI-generated dashboard, basic student project, or template with different colours applied.
+
+IMPORTANT: Inspect the existing project and its actual source code before making changes.
+
+Preserve the current application architecture, quiz data, question logic, scoring system, timers, answer locking, streak multipliers, audio functionality, localStorage persistence, navigation, and existing integrations.
+
+Do not replace working features with mock data.
+
+Do not rebuild the entire application unnecessarily. Refactor existing components where appropriate and introduce new components only when they improve the architecture or design.
+
+---
+
+# 2. DESIGN PHILOSOPHY
+
+The interface should communicate five qualities:
+
+1. Premium.
+2. Intelligent.
+3. Competitive.
+4. Elegant.
+5. Enjoyable.
+
+The design should combine the sophistication of a luxury editorial website with the energy of a modern gaming product.
+
+Use rich red and gold as the visual identity, but keep the overall interface readable and balanced.
+
+Do not make every section red or gold.
+
+Use warm neutral surfaces to create breathing room.
+
+Use burgundy for important structural elements, gold for selective emphasis, and ivory for the majority of the main interface.
+
+The interface must have clear visual hierarchy.
+
+Every component should have a reason to exist.
+
+Avoid unnecessary decorations, excessive gradients, random floating icons, excessive shadows, and oversized rounded cards.
+
+The result should feel carefully designed rather than overdecorated.
+
+---
+
+# 3. COMPLETE COLOUR DESIGN SYSTEM
+
+Create a central design-token system using CSS variables.
+
+Use the following exact colours as the initial design specification.
+
+## Primary brand colours
+
+Deep Burgundy:
+#570D18
+
+Primary Burgundy:
+#760F20
+
+Primary Crimson:
+#981B2B
+
+Bright Crimson:
+#B7283A
+
+Dark Wine:
+#3A0810
+
+## Gold colours
+
+Antique Gold:
+#A87526
+
+Rich Gold:
+#C18A36
+
+Champagne Gold:
+#E1BC72
+
+Light Gold:
+#F4DDA8
+
+Soft Gold:
+#F9EBD0
+
+## Neutral colours
+
+Main Background:
+#F7F0E5
+
+Secondary Background:
+#F2E7D8
+
+Card Background:
+#FFFCF7
+
+Pure White:
+#FFFFFF
+
+Primary Text:
+#281D1B
+
+Secondary Text:
+#695650
+
+Muted Text:
+#8C7971
+
+Border:
+#E8D5C3
+
+Subtle Divider:
+#EFE2D5
+
+## Semantic colours
+
+Success:
+#237547
+
+Success Background:
+#E7F3E9
+
+Error:
+#B42332
+
+Error Background:
+#FCE8E8
+
+Warning:
+#946014
+
+Warning Background:
+#FFF0D3
+
+Information:
+#315A88
+
+Information Background:
+#E9F0F8
+
+## Colour usage rules
+
+Main page backgrounds should use Main Background.
+
+Cards should generally use Card Background.
+
+The sidebar should use a deep burgundy surface.
+
+Primary buttons should use Primary Burgundy or Primary Crimson.
+
+Gold should be reserved for premium highlights, achievement icons, small decorative accents, selected progress indicators, and carefully chosen visual emphasis.
+
+Use Rich Gold or Antique Gold for small icons and meaningful highlights.
+
+Use dark text on light gold backgrounds.
+
+Never place small white text on pale gold.
+
+Never use pale gold as the main colour for small text on a white background.
+
+Use semantic green and red for answer feedback rather than relying on decorative brand colours to communicate correctness.
+
+Do not introduce unrelated blue, purple, neon green, or bright cyan accents.
+
+All components must use the central design tokens instead of scattered hardcoded colours.
+
+---
+
+# 4. TYPOGRAPHY SYSTEM
+
+Typography must feel elegant, confident, and modern.
+
+Use Google Fonts if the application already supports external font loading.
+
+Recommended fonts:
+
+Display and editorial headings:
+Playfair Display
+
+Body text and interface:
+Inter
+
+Use these font families consistently.
+
+Suggested CSS:
+
+--font-display: 'Playfair Display', Georgia, serif;
+--font-body: 'Inter', Arial, sans-serif;
+
+If external font loading is unavailable, use appropriate system fallbacks.
+
+## Typography scale
+
+Desktop hero heading:
+64px, weight 700, line-height 1.05.
+
+Secondary hero heading:
+56px, weight 700, line-height 1.08.
+
+Section headings:
+30px, weight 700, line-height 1.25.
+
+Card headings:
+19px, weight 650, line-height 1.35.
+
+Standard body text:
+15px, weight 400, line-height 1.7.
+
+Secondary descriptions:
+14px, weight 400, line-height 1.6.
+
+Navigation labels:
+14px, weight 500.
+
+Primary button text:
+14px, weight 600.
+
+Small metadata:
+12px, weight 500.
+
+Quiz question:
+28px, weight 650, line-height 1.4.
+
+Quiz answer:
+15px, weight 500.
+
+Results score:
+56px, weight 700.
+
+Mobile hero heading:
+36px to 42px.
+
+Mobile section heading:
+25px to 28px.
+
+Mobile quiz question:
+22px to 25px.
+
+Typography rules:
+
+* Use Playfair Display selectively for the hero heading, major section headings, and important achievement messages.
+* Use Inter for navigation, forms, buttons, descriptions, statistics, questions, and supporting content.
+* Do not use decorative serif typography for every component.
+* Avoid excessive letter spacing.
+* Use a consistent type scale.
+* Keep paragraphs short and readable.
+* Avoid unnecessary uppercase text.
+* Use uppercase labels only for small badges or meaningful section indicators.
+
+---
+
+# 5. APPLICATION LAYOUT
+
+Build the interface around a responsive application shell.
+
+The shell contains:
+
+1. Left navigation sidebar.
+2. Top navigation bar.
+3. Main page content.
+4. Responsive mobile navigation.
+
+Desktop target viewport:
+1440 × 900 pixels.
+
+The design must also work at:
+1920 × 1080,
+1366 × 768,
+1024 × 768,
+768 × 1024,
+390 × 844,
+and 360 × 800.
+
+## Desktop sidebar
+
+Width:
+210px.
+
+Minimum width:
+210px.
+
+Background:
+#570D18.
+
+Use a very subtle burgundy gradient if it improves the design.
+
+The sidebar should occupy the viewport height.
+
+Use a fixed or sticky sidebar when appropriate to the existing layout.
+
+Sidebar padding:
+16px.
+
+Logo area height:
+112px.
+
+Place the logo at the top.
+
+Logo symbol:
+A simple crown icon or existing QuizQuest brand mark.
+
+Logo text:
+QuizQuest.
+
+Logo font:
+Playfair Display.
+
+Logo size:
+27px.
+
+Logo colour:
+#F7F0E5.
+
+Optional tagline:
+THINK · ANSWER · WIN
+
+Tagline font:
+10px.
+
+Tagline colour:
+#E1BC72.
+
+Do not create an oversized logo that competes with the page content.
+
+## Sidebar navigation
+
+Navigation items:
+
+* Home
+* Play Quiz
+* Categories
+* Leaderboard
+* Achievements
+* Profile
+* Settings
+
+Use the existing navigation structure if it differs.
+
+Each navigation item:
+
+Height:
+48px.
+
+Horizontal padding:
+14px.
+
+Border radius:
+12px.
+
+Icon size:
+20px.
+
+Gap between icon and text:
+12px.
+
+Text size:
+14px.
+
+Vertical spacing between items:
+6px.
+
+Default text:
+#E8D5C3.
+
+Default icon:
+#D7BCA5.
+
+Active item background:
+#981B2B.
+
+Active item text:
+#FFFFFF.
+
+Active item icon:
+#FFFFFF.
+
+Use a subtle border:
+1px solid rgba(244, 221, 168, 0.15).
+
+Hover background:
+rgba(255, 255, 255, 0.07).
+
+Use a short background transition.
+
+Do not apply a gold gradient to every navigation item.
+
+The active navigation state should be clear but restrained.
+
+At the bottom of the sidebar, place a compact promotional or achievement card only if the existing application has relevant content for it.
+
+Do not invent premium subscription functionality.
+
+## Top navigation
+
+Desktop height:
+76px.
+
+Background:
+rgba(255, 252, 247, 0.94).
+
+Bottom border:
+1px solid #E8D5C3.
+
+Horizontal padding:
+32px.
+
+Elements:
+
+* Search field.
+* Notification button if notifications exist.
+* Sound toggle if audio functionality exists.
+* User profile or account controls if supported.
+
+Search field:
+
+Width:
+380px.
+
+Height:
+44px.
+
+Border radius:
+24px.
+
+Background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Horizontal padding:
+16px.
+
+Search icon:
+18px.
+
+Placeholder:
+Search categories, topics...
+
+Placeholder colour:
+#8C7971.
+
+Text size:
+14px.
+
+Focus border:
+#A87526.
+
+Focus ring:
+0 0 0 3px rgba(193, 138, 54, 0.15).
+
+The search must remain functional.
+
+Do not display controls that have no corresponding functionality.
+
+---
+
+# 6. HOMEPAGE HERO SECTION
+
+This is the most important section of the homepage.
+
+Create an elegant, visually striking hero with a balanced two-column composition.
+
+Desktop hero height:
+Approximately 370px to 410px.
+
+Left content:
+Approximately 55% of the hero width.
+
+Right visual:
+Approximately 45% of the hero width.
+
+Use a warm ivory background.
+
+A subtle cream gradient is acceptable.
+
+Avoid a full-page background image that makes text difficult to read.
+
+## Hero badge
+
+Text:
+THE ULTIMATE QUIZ EXPERIENCE
+
+Style:
+Small pill-shaped badge.
+
+Height:
+32px.
+
+Horizontal padding:
+14px.
+
+Background:
+#F9EBD0.
+
+Text:
+#760F20.
+
+Border:
+1px solid rgba(168, 117, 38, 0.25).
+
+Font:
+Inter, 11px, weight 700.
+
+Use a small gamepad icon.
+
+Icon size:
+14px.
+
+## Hero heading
+
+Text:
+
+"Welcome to QuizQuest!"
+
+Use a deliberate two-line composition where appropriate.
+
+Example:
+
+Welcome to
+QuizQuest!
+
+Use Playfair Display.
+
+Desktop size:
+64px.
+
+Weight:
+700.
+
+Line height:
+1.05.
+
+Main heading colour:
+#281D1B.
+
+Highlight the word "QuizQuest!" using Primary Burgundy.
+
+Use a short gold underline or elegant divider beneath the heading.
+
+The underline should be subtle, approximately 90px wide and 3px high.
+
+Do not animate the underline continuously.
+
+## Hero description
+
+Text:
+
+"Test your knowledge, challenge your mind, and become the ultimate quiz champion!"
+
+Font:
+Inter, 16px.
+
+Colour:
+#695650.
+
+Maximum width:
+480px.
+
+Line height:
+1.7.
+
+Margin top:
+16px.
+
+## Hero buttons
+
+Primary button:
+Start Playing.
+
+Secondary button:
+View Leaderboard.
+
+Primary button dimensions:
+Height 52px.
+
+Horizontal padding:
+24px.
+
+Minimum width:
+190px.
+
+Border radius:
+14px.
+
+Background:
+#760F20.
+
+Text:
+#FFFFFF.
+
+Font size:
+14px.
+
+Font weight:
+600.
+
+Optional icon:
+18px.
+
+Use a subtle shadow:
+0 6px 16px rgba(87, 13, 24, 0.15).
+
+Hover background:
+#570D18.
+
+Hover transform:
+translateY(-2px).
+
+Transition:
+180ms ease.
+
+Secondary button dimensions:
+Height 52px.
+
+Horizontal padding:
+22px.
+
+Background:
+transparent.
+
+Border:
+1px solid #981B2B.
+
+Text:
+#760F20.
+
+Hover background:
+#F9EBD0.
+
+Gap between buttons:
+14px.
+
+The buttons must work with the existing application navigation.
+
+## Hero visual
+
+Create a premium trophy illustration or use a suitable existing visual asset.
+
+The trophy should symbolize achievement and knowledge.
+
+Visual style:
+
+* Polished gold trophy.
+* Deep red details.
+* Subtle gold glow.
+* Controlled decorative sparkles.
+* Small quiz-related symbols where useful.
+* Elegant burgundy ribbon or flowing shapes if appropriate.
+
+Use a high-quality transparent image or an existing illustration.
+
+If no suitable asset exists, create a CSS illustration or use an appropriate icon and composition.
+
+Do not introduce a huge image that pushes essential content below the fold.
+
+Do not use random emoji as a replacement for professional visual assets.
+
+Keep decorative elements behind the content.
+
+Use pointer-events: none for noninteractive decorative layers.
+
+Avoid heavy continuous animations.
+
+The visual should enhance the hero without overwhelming the heading.
+
+---
+
+# 7. CATEGORY SECTION
+
+Create a section titled:
+
+Explore Categories
+
+Include a "View All Categories" action only if the corresponding navigation exists.
+
+Section heading:
+Playfair Display.
+
+Font size:
+30px.
+
+Weight:
+700.
+
+Colour:
+#281D1B.
+
+Section spacing:
+
+Margin top:
+24px.
+
+Margin bottom:
+18px.
+
+Desktop grid:
+6 columns where sufficient width is available.
+
+If six columns make the cards too narrow, use 3 columns or another appropriate layout.
+
+Tablet:
+2 or 3 columns.
+
+Mobile:
+1 or 2 columns depending on available width.
+
+Category examples should be based on the application's actual categories.
+
+Possible examples, only if supported by the existing question data:
+
+* General Knowledge.
+* Science.
+* Geography.
+* Technology.
+* History.
+* Arts & Culture.
+* Sports.
+
+Do not invent categories that have no questions behind them.
+
+## Category card dimensions
+
+Desktop target:
+Approximately 190px wide and 160px high for a six-column layout within the main content area.
+
+Minimum height:
+150px.
+
+Padding:
+16px.
+
+Border radius:
+16px.
+
+Border:
+1px solid #E8D5C3.
+
+Background:
+#FFFCF7.
+
+Shadow:
+0 4px 12px rgba(58, 8, 16, 0.04).
+
+Hover:
+Translate upward by 3px.
+
+Hover shadow:
+0 8px 22px rgba(58, 8, 16, 0.09).
+
+Transition:
+180ms ease.
+
+Use consistent card dimensions.
+
+## Category visual treatments
+
+Use the same underlying neutral card system for every category.
+
+Do not give every card a completely different background colour.
+
+Use subtle visual variation through icons, restrained illustrations, or small top-edge accents.
+
+Primary category icon:
+24px to 30px.
+
+Icon colours:
+#760F20 or #A87526.
+
+Category title:
+18px.
+
+Font weight:
+650.
+
+Text colour:
+#281D1B.
+
+Metadata:
+13px.
+
+Text colour:
+#695650.
+
+Show actual question counts when available.
+
+Example:
+15 Questions.
+
+Use an arrow or play icon as a secondary interaction indicator.
+
+Ensure the entire intended clickable area is keyboard accessible.
+
+Do not place decorative overlays on top of text.
+
+---
+
+# 8. ADDITIONAL HOMEPAGE SECTIONS
+
+The homepage should be informative without becoming overcrowded.
+
+Use a consistent spacing scale.
+
+Recommended spacing tokens:
+
+4px
+8px
+12px
+16px
+20px
+24px
+32px
+40px
+48px
+64px
+
+Use these consistently.
+
+## Feature cards
+
+Possible features:
+
+* Fast & Fun Gameplay.
+* Track Your Progress.
+* Earn Achievements.
+* Compete with Friends.
+
+Only display features that exist in the current application or can be implemented without compromising existing functionality.
+
+Card background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+16px.
+
+Padding:
+20px.
+
+Icon size:
+24px.
+
+Heading size:
+16px.
+
+Description size:
+13px.
+
+Keep these cards understated.
+
+Avoid giant icons and excessive decoration.
+
+## Call-to-action banner
+
+Text:
+"Ready to Test Your Knowledge?"
+
+Description:
+"Jump into a quiz and challenge yourself."
+
+Background:
+#570D18.
+
+Text:
+#FFFFFF.
+
+Accent:
+#E1BC72.
+
+Border radius:
+18px.
+
+Padding:
+24px.
+
+Primary button:
+Use a warm gold background with dark burgundy text.
+
+Button background:
+#E1BC72.
+
+Button text:
+#3A0810.
+
+Button height:
+46px.
+
+Hover:
+#F4DDA8.
+
+Use a small trophy or target illustration only if it fits naturally.
+
+Keep this banner compact and visually distinct.
+
+---
+
+# 9. QUIZ CONFIGURATION SCREEN
+
+The quiz configuration screen must use the same design system.
+
+Do not introduce a separate visual identity.
+
+Create a clear configuration panel containing only the settings supported by the existing application.
+
+Possible controls:
+
+* Category selection.
+* Difficulty selection.
+* Number of questions.
+* Timer settings.
+* Start quiz button.
+
+Use actual application options and preserve their existing behaviour.
+
+## Configuration card
+
+Maximum width:
+760px.
+
+Margin:
+0 auto.
+
+Padding:
+32px.
+
+Background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+20px.
+
+Shadow:
+0 8px 28px rgba(58, 8, 16, 0.05).
+
+Title:
+30px Playfair Display.
+
+Description:
+14px Inter.
+
+Form label:
+13px, weight 600.
+
+Input height:
+48px.
+
+Input border:
+1px solid #E8D5C3.
+
+Input background:
+#FFFFFF.
+
+Input border radius:
+10px.
+
+Input padding:
+12px.
+
+Focus border:
+#A87526.
+
+Focus ring:
+0 0 0 3px rgba(193, 138, 54, 0.15).
+
+Use clear selected states.
+
+Selected category or difficulty:
+Light gold background or a restrained burgundy border.
+
+Do not use a gold background for every selected control.
+
+Ensure labels remain associated with their inputs.
+
+---
+
+# 10. QUIZ PLAYING SCREEN
+
+This is a critical screen.
+
+The interface must prioritize reading the question, selecting an answer, and understanding the remaining time.
+
+Remove distractions while the quiz is active.
+
+## Quiz layout
+
+Desktop:
+
+Use a centered quiz container.
+
+Maximum width:
+900px.
+
+Keep the question area prominent.
+
+Optional progress sidebar:
+Only if it exists in the application and genuinely helps the user.
+
+Mobile:
+Use a single-column layout.
+
+Do not let decorative elements interfere with the question or answer options.
+
+## Quiz header
+
+Display:
+
+* Current question number.
+* Total number of questions.
+* Progress indicator.
+* Timer if enabled.
+* Score if currently supported.
+
+Header height:
+56px to 64px.
+
+Background:
+Transparent or #FFFCF7.
+
+Use restrained separators.
+
+Question counter:
+13px.
+
+Timer:
+14px, weight 600.
+
+Progress bar height:
+6px.
+
+Progress track:
+#E8D5C3.
+
+Progress fill:
+#981B2B.
+
+If progress is animated, keep the animation short and subtle.
+
+## Question card
+
+Background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+20px.
+
+Padding:
+32px on desktop.
+
+Padding:
+20px on mobile.
+
+Question font:
+28px desktop.
+
+Question font:
+22px mobile.
+
+Font family:
+Inter.
+
+Font weight:
+650.
+
+Line height:
+1.45.
+
+Text colour:
+#281D1B.
+
+Maintain comfortable spacing between the question and answer options.
+
+## Answer options
+
+Use a vertical list of answer cards.
+
+Minimum height:
+60px.
+
+Padding:
+16px.
+
+Border radius:
+12px.
+
+Border:
+1px solid #E8D5C3.
+
+Background:
+#FFFFFF.
+
+Gap:
+12px.
+
+Option letter or icon:
+32px square.
+
+Option label:
+15px.
+
+Text colour:
+#281D1B.
+
+Default state:
+White background and warm neutral border.
+
+Hover state:
+#F9EBD0 background.
+
+Hover border:
+#C18A36.
+
+Selected state before submission:
+#F9EBD0 background.
+
+Selected border:
+#981B2B.
+
+Selected indicator:
+Visible check or radio indicator.
+
+Keyboard focus:
+Visible outline with sufficient contrast.
+
+Do not rely only on colour to communicate selection.
+
+Maintain the existing answer-locking logic.
+
+Once an answer is submitted, prevent changing it if the current rules require answers to be locked.
+
+## Correct answer state
+
+Background:
+#E7F3E9.
+
+Border:
+#237547.
+
+Icon:
+Green check.
+
+Text:
+Dark green or standard readable dark text.
+
+## Incorrect answer state
+
+Background:
+#FCE8E8.
+
+Border:
+#B42332.
+
+Icon:
+Red cross.
+
+Show the correct answer according to the existing quiz logic.
+
+Never use red and green alone without icons or textual feedback.
+
+## Explanation panel
+
+If explanations exist, display them in a dedicated panel after the answer is locked.
+
+Background:
+#F7F0E5.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+12px.
+
+Padding:
+18px.
+
+Heading:
+15px, weight 650.
+
+Body:
+14px, line-height 1.7.
+
+Do not display fake explanations.
+
+Do not invent answer explanations for questions that have none unless you implement and verify a reliable explanation source.
+
+## Quiz navigation buttons
+
+Use the existing navigation rules.
+
+Primary action:
+Submit Answer or Next Question, depending on the current state.
+
+Button height:
+48px.
+
+Horizontal padding:
+24px.
+
+Background:
+#760F20.
+
+Text:
+#FFFFFF.
+
+Border radius:
+12px.
+
+Disabled state:
+Use a muted background and text with a visible disabled appearance.
+
+Keep navigation clear.
+
+Do not allow accidental multiple submissions.
+
+Preserve the existing scoring and timer behaviour.
+
+---
+
+# 11. RESULTS SCREEN
+
+The results screen should feel rewarding without becoming childish.
+
+Use a warm ivory background.
+
+Place the main results content in a centered container.
+
+Maximum width:
+900px.
+
+## Results hero card
+
+Background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+22px.
+
+Padding:
+36px.
+
+Text alignment:
+Center for the main result summary.
+
+Display the actual score.
+
+Do not fabricate performance data.
+
+Score number:
+56px.
+
+Font:
+Playfair Display.
+
+Weight:
+700.
+
+Colour:
+#760F20.
+
+Display the percentage only when it can be calculated accurately.
+
+Use a gold accent for achievement highlights.
+
+## Performance indicators
+
+Display actual values for:
+
+* Correct answers.
+* Incorrect answers.
+* Total questions.
+* Accuracy.
+* Time taken if tracked.
+
+Use consistent compact statistic cards.
+
+Background:
+#FFFFFF.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+14px.
+
+Padding:
+18px.
+
+Statistic number:
+28px.
+
+Label:
+13px.
+
+Do not use different saturated backgrounds for every statistic card.
+
+## Result actions
+
+Possible buttons:
+
+* Play Again.
+* Review Answers.
+* Back to Home.
+
+Only show actions that the application supports.
+
+Primary action:
+#760F20 background with white text.
+
+Secondary action:
+Transparent background with a burgundy border.
+
+Button height:
+48px.
+
+Ensure every action works.
+
+## Review answers
+
+Show the original question and the user's actual answer.
+
+Clearly distinguish:
+
+* Correct response.
+* Incorrect response.
+* Correct answer.
+* Explanation, when available.
+
+Use the same answer-state colours as the quiz screen.
+
+Preserve the actual answer history.
+
+Do not invent previous responses.
+
+---
+
+# 12. LEADERBOARD
+
+Keep the leaderboard consistent with the premium theme.
+
+Use a centered modal or dedicated page according to the existing architecture.
+
+Modal maximum width:
+680px.
+
+Border radius:
+20px.
+
+Background:
+#FFFCF7.
+
+Padding:
+24px.
+
+Use a subtle shadow.
+
+Title:
+28px Playfair Display.
+
+Each leaderboard row should contain:
+
+* Rank.
+* Player name.
+* Actual score.
+* Relevant achievement or statistic if available.
+
+Row height:
+60px.
+
+Border bottom:
+1px solid #EFE2D5.
+
+Use gold to emphasize the top rank.
+
+Use burgundy for important rank indicators.
+
+Do not fabricate players or rankings.
+
+Use real saved leaderboard data when available.
+
+If leaderboard functionality is local-only, preserve that limitation rather than implying that the data is globally synchronized.
+
+Make the modal keyboard accessible.
+
+Support Escape to close where appropriate.
+
+Close on backdrop click only if that behaviour is consistent with the existing interface.
+
+Prevent background scrolling when the modal is open.
+
+---
+
+# 13. ACHIEVEMENTS AND PROGRESS
+
+Use the same palette for achievements and progress displays.
+
+Achievement cards:
+
+Background:
+#FFFCF7.
+
+Border:
+1px solid #E8D5C3.
+
+Border radius:
+16px.
+
+Padding:
+20px.
+
+Use gold for earned achievement icons.
+
+Use muted neutral colours for locked achievements.
+
+Use real achievement conditions and user progress.
+
+Do not unlock achievements solely for visual effect.
+
+Progress bars:
+
+Track:
+#E8D5C3.
+
+Fill:
+#981B2B.
+
+Height:
+8px.
+
+Border radius:
+999px.
+
+Use actual values.
+
+Keep progress animations subtle.
+
+Respect reduced-motion preferences.
+
+---
+
+# 14. BUTTON DESIGN SYSTEM
+
+Create reusable button variants rather than styling every button independently.
+
+## Primary button
+
+Background:
+#760F20.
+
+Text:
+#FFFFFF.
+
+Height:
+48px.
+
+Padding:
+0 22px.
+
+Border radius:
+12px.
+
+Font:
+Inter.
+
+Font size:
+14px.
+
+Weight:
+600.
+
+Shadow:
+0 4px 12px rgba(87, 13, 24, 0.12).
+
+Hover:
+#570D18.
+
+Focus:
+Visible accessible outline.
+
+Active:
+A subtle pressed state.
+
+Disabled:
+Muted colours and disabled cursor.
+
+## Gold button
+
+Background:
+#E1BC72.
+
+Text:
+#3A0810.
+
+Height:
+48px.
+
+Padding:
+0 22px.
+
+Border radius:
+12px.
+
+Font size:
+14px.
+
+Weight:
+600.
+
+Hover:
+#F4DDA8.
+
+Use only for selected premium actions.
+
+Do not use gold for every button.
+
+## Secondary button
+
+Background:
+Transparent.
+
+Text:
+#760F20.
+
+Border:
+1px solid #981B2B.
+
+Height:
+48px.
+
+Padding:
+0 22px.
+
+Border radius:
+12px.
+
+Hover:
+#F9EBD0.
+
+## Ghost button
+
+Background:
+Transparent.
+
+Border:
+1px solid transparent.
+
+Text:
+#695650.
+
+Hover:
+#F2E7D8.
+
+Use for low-priority actions.
+
+## Icon button
+
+Dimensions:
+40px × 40px.
+
+Border radius:
+10px.
+
+Icon size:
+18px.
+
+Use an accessible label for icon-only controls.
+
+All buttons must support keyboard interaction and visible focus states.
+
+Do not create clickable-looking buttons that do nothing.
+
+---
+
+# 15. ICONOGRAPHY
+
+Use a consistent icon library already installed in the project.
+
+If the project uses Lucide React, continue using it.
+
+If it uses another consistent icon library, retain that library unless there is a strong technical reason to change it.
+
+Recommended icon size:
+
+Navigation:
+20px.
+
+Buttons:
+18px.
+
+Card icons:
+24px.
+
+Small indicators:
+14px.
+
+Use a consistent stroke width, preferably around 1.8 to 2.
+
+Default icon colour:
+#760F20 or #695650.
+
+Selected accent:
+#A87526.
+
+Do not mix multiple unrelated icon styles.
+
+Avoid emoji as interface icons.
+
+Decorative imagery can use more detailed illustration styles, but the functional interface icons must remain consistent.
+
+---
+
+# 16. SHADOWS, BORDERS, AND RADIUS
+
+Keep depth subtle.
+
+Define reusable shadow tokens.
+
+Small shadow:
+0 2px 6px rgba(58, 8, 16, 0.04).
+
+Card shadow:
+0 4px 14px rgba(58, 8, 16, 0.05).
+
+Elevated shadow:
+0 10px 28px rgba(58, 8, 16, 0.09).
+
+Modal shadow:
+0 20px 60px rgba(40, 10, 15, 0.18).
+
+Avoid black shadows that appear harsh against cream backgrounds.
+
+Border colours should remain warm and subtle.
+
+Use these radius values:
+
+Small controls:
+8px.
+
+Inputs:
+10px.
+
+Buttons:
+12px.
+
+Standard cards:
+16px.
+
+Large feature cards:
+20px.
+
+Modal:
+20px.
+
+Pills:
+999px.
+
+Do not give every element the same large radius.
+
+Avoid excessive glassmorphism.
+
+Do not use strong backdrop blur everywhere.
+
+---
+
+# 17. MOTION AND MICRO-INTERACTIONS
+
+The interface should feel responsive, not animated for the sake of animation.
+
+Use short, consistent transitions.
+
+Typical duration:
+150ms to 220ms.
+
+Typical easing:
+ease-out.
+
+Allowed interactions:
+
+* Button hover and pressed states.
+* Card hover elevation.
+* Navigation selection transitions.
+* Short progress-bar transitions.
+* Modal entrance and exit.
+* Small achievement feedback.
+* Subtle answer-state transitions.
+
+Avoid:
+
+* Constant floating animations.
+* Excessive particle effects.
+* Flashing backgrounds.
+* Repeated pulsing on every button.
+* Large parallax effects.
+* Animations that delay quiz interaction.
+* Decorative motion that interferes with reading.
+
+Respect the prefers-reduced-motion media query.
+
+Keep animations performant.
+
+---
+
+# 18. RESPONSIVE DESIGN
+
+The application must work properly across mobile, tablet, laptop, and desktop.
+
+## Desktop: 1200px and above
+
+Use the full sidebar.
+
+Keep the main content spacious.
+
+Maintain a balanced hero layout.
+
+Use multiple category columns where appropriate.
+
+## Tablet: 768px to 1199px
+
+Reduce the sidebar width or use a collapsible navigation pattern.
+
+Reduce hero typography.
+
+Allow category grids to wrap.
+
+Reduce card padding where necessary.
+
+Keep all primary actions visible.
+
+## Mobile: below 768px
+
+Use a compact top navigation.
+
+Replace the permanent desktop sidebar with a drawer or a suitable mobile navigation pattern.
+
+Do not simply shrink the desktop sidebar until it becomes unusable.
+
+Use a single-column hero layout.
+
+Move the hero visual below the main heading or reduce its size.
+
+Hero heading:
+36px to 42px.
+
+Hero description:
+14px to 15px.
+
+Primary buttons:
+At least 44px high.
+
+Cards:
+Use a responsive grid.
+
+Prevent horizontal scrolling.
+
+Quiz answer options:
+Full width.
+
+Quiz card:
+20px padding where space allows.
+
+Results cards:
+Stack vertically when necessary.
+
+Modal:
+Fit within the viewport.
+
+Ensure touch targets are sufficiently large.
+
+Use safe-area insets where relevant.
+
+Test at 360px and 390px viewport widths.
+
+## Small screens
+
+Hide only nonessential decorative elements.
+
+Never hide the question, answer options, score, timer, or necessary navigation.
+
+Do not allow fixed elements to cover important content.
+
+---
+
+# 19. ACCESSIBILITY
+
+Follow accessible UI practices.
+
+Requirements:
+
+* Maintain readable text contrast.
+* Use semantic HTML.
+* Associate form labels with inputs.
+* Support keyboard navigation.
+* Provide visible focus indicators.
+* Use accessible names for icon buttons.
+* Do not rely on colour alone to communicate correctness.
+* Ensure buttons and links have clear labels.
+* Respect reduced-motion preferences.
+* Keep error messages understandable.
+* Ensure dialogs manage focus correctly.
+* Avoid text smaller than 12px for essential interface information.
+
+Aim for WCAG AA contrast for text and interactive controls.
+
+Verify colour combinations rather than assuming that a palette is accessible.
+
+---
+
+# 20. TECHNICAL IMPLEMENTATION
+
+Inspect the existing application before editing.
+
+The existing application may contain components such as:
+
+* Navbar.tsx
+* HomePage.tsx
+* QuizView.tsx
+* ResultsView.tsx
+* LeaderboardModal.tsx
+
+Use the actual component structure discovered in the repository.
+
+Do not assume these exact files still exist.
+
+## Create a consistent design system
+
+Centralize colours, spacing, typography, shadows, and radii.
+
+If the project uses CSS variables, extend them.
+
+If it uses Tailwind CSS, define or extend the theme consistently.
+
+If it uses CSS modules, preserve the existing styling architecture.
+
+Avoid adding dependencies unnecessarily.
+
+Do not replace the routing library.
+
+Do not replace the state-management approach.
+
+Do not replace the quiz data source.
+
+Do not change database schemas.
+
+Do not alter authentication or persistence behaviour.
+
+Do not remove existing features because they are difficult to style.
+
+## Reusable components
+
+Where useful, create or refine components such as:
+
+* Button
+* IconButton
+* SearchInput
+* Sidebar
+* Topbar
+* CategoryCard
+* StatCard
+* ProgressBar
+* QuestionCard
+* AnswerOption
+* FeedbackPanel
+* ResultSummary
+* LeaderboardRow
+* Modal
+
+Reuse components consistently.
+
+Avoid duplicating styles across multiple pages.
+
+Do not create abstractions that add unnecessary complexity.
+
+## CSS variables
+
+Create a central token system similar to:
+
+:root {
+--color-burgundy-dark: #570D18;
+--color-burgundy: #760F20;
+--color-crimson: #981B2B;
+--color-crimson-bright: #B7283A;
+
+--color-gold-dark: #A87526;
+--color-gold: #C18A36;
+--color-gold-light: #E1BC72;
+--color-gold-pale: #F4DDA8;
+
+--color-background: #F7F0E5;
+--color-background-secondary: #F2E7D8;
+--color-surface: #FFFCF7;
+--color-white: #FFFFFF;
+
+--color-text: #281D1B;
+--color-text-secondary: #695650;
+--color-text-muted: #8C7971;
+
+--color-border: #E8D5C3;
+--color-divider: #EFE2D5;
+
+--color-success: #237547;
+--color-success-background: #E7F3E9;
+
+--color-error: #B42332;
+--color-error-background: #FCE8E8;
+
+--font-display: 'Playfair Display', Georgia, serif;
+--font-body: 'Inter', Arial, sans-serif;
+
+--radius-control: 10px;
+--radius-button: 12px;
+--radius-card: 16px;
+--radius-large: 20px;
+
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-5: 20px;
+--space-6: 24px;
+--space-8: 32px;
+--space-10: 40px;
+--space-12: 48px;
+
+--shadow-card:
+0 4px 14px rgba(58, 8, 16, 0.05);
+
+--shadow-elevated:
+0 10px 28px rgba(58, 8, 16, 0.09);
+}
+
+Adapt the variables to the project's existing conventions.
+
+Do not blindly duplicate tokens if equivalent tokens already exist.
+
+---
+
+# 21. VISUAL QUALITY RULES
+
+The final interface must satisfy these requirements.
+
+1. The homepage should immediately communicate the QuizQuest identity.
+2. Burgundy should be the principal brand colour.
+3. Gold should create selective premium emphasis.
+4. Warm ivory should dominate the main background.
+5. Typography should have clear hierarchy.
+6. Cards should have consistent spacing and proportions.
+7. Buttons should have consistent dimensions and interaction states.
+8. Navigation should clearly show the active page.
+9. Every screen should use the same design language.
+10. Mobile layouts should feel deliberately designed.
+11. No text should overlap images.
+12. No important controls should be clipped.
+13. No unnecessary horizontal scrolling.
+14. No excessive shadows or gradients.
+15. No fake statistics or fabricated functionality.
+16. No placeholder buttons that do nothing.
+17. No broken routes.
+18. No console errors introduced by the redesign.
+19. No loss of existing quiz functionality.
+20. No unnecessary new features added during the visual redesign.
+
+The result should feel premium because of its composition, typography, spacing, colour discipline, and visual consistency—not because every component has decorative effects.
+
+---
+
+# 22. IMPLEMENTATION WORKFLOW
+
+Follow this order.
+
+### Step 1: Inspect
+
+Inspect the existing repository and identify:
+
+* Framework and dependencies.
+* Routing.
+* Existing components.
+* Global styles.
+* Quiz state and data.
+* Timer implementation.
+* Answer submission and locking.
+* Scoring and streak multipliers.
+* Audio handling.
+* LocalStorage persistence.
+* Results and leaderboard behaviour.
+
+Do not begin by replacing working files wholesale.
+
+### Step 2: Establish the design system
+
+Implement the colour tokens, typography, spacing, shadows, radii, and shared components.
+
+### Step 3: Redesign the homepage
+
+Implement the sidebar, top navigation, hero section, category cards, feature cards, and call-to-action.
+
+### Step 4: Redesign the quiz experience
+
+Implement the question layout, progress indicator, timer, answer states, feedback, and navigation.
+
+Preserve the original quiz logic.
+
+### Step 5: Redesign results and leaderboard
+
+Use real application data and preserve existing behaviour.
+
+### Step 6: Responsive pass
+
+Check desktop, tablet, and mobile layouts.
+
+Fix overflow, spacing, stacking, and touch-target problems.
+
+### Step 7: Functional verification
+
+Run the project.
+
+Run the existing build and type checks where available.
+
+Verify that:
+
+* The homepage loads.
+* Category selection works.
+* Quiz configuration works.
+* Questions appear correctly.
+* Answers can be selected.
+* Answers lock according to the original rules.
+* The timer works.
+* Scores are calculated correctly.
+* Streak multipliers remain correct.
+* Audio controls still work.
+* Results display actual data.
+* Answer review works.
+* Leaderboard behaviour remains intact.
+* LocalStorage persistence remains intact.
+* Navigation works.
+* Mobile layouts are usable.
+
+Fix any regressions introduced by the redesign.
+
+### Step 8: Final visual audit
+
+Inspect the actual rendered application.
+
+Do not rely only on source-code inspection.
+
+Look for:
+
+* Inconsistent spacing.
+* Misaligned components.
+* Weak contrast.
+* Unbalanced colour usage.
+* Poor typography.
+* Excessive decorative elements.
+* Incorrect responsive behaviour.
+* Oversized hero sections.
+* Buttons that look inconsistent.
+* Cards that feel repetitive or cluttered.
+
+Make the necessary corrections.
+
+---
+
+# 23. FINAL INSTRUCTION
+
+Implement the complete redesign in the existing QuizQuest project.
+
+Do not respond with another design proposal or a description of what you would do.
+
+Actually modify the application.
+
+Prioritize a polished, coherent, premium user interface using deep burgundy, crimson, antique gold, and warm ivory.
+
+Use the provided reference mockup as the visual direction, but adapt the composition to the actual QuizQuest application and its real functionality.
+
+Preserve all working features.
+
+Do not invent content, statistics, or functionality.
+
+Do not stop after updating the homepage. Apply the same quality standard to the quiz screen, results screen, category selection, and leaderboard.
+
+After implementation, run the available checks and report briefly:
+
+1. Which components were redesigned.
+2. Which existing behaviours were preserved.
+3. Which checks passed.
+4. Whether any issues remain.
+
+The final product must look and behave like a professionally designed quiz gaming platform.

@@ -1,0 +1,6 @@
+{
+  "name": "QuizQuest",
+  "description": "Interactive quiz game with diverse categories, multiple difficulty levels, live scoring, timer options, and performance analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
