@@ -8,16 +8,13 @@ import {
   Atom,
   Cpu,
   Landmark,
-  CheckCircle2,
   Sparkles,
   SlidersHorizontal,
-  Layers,
   HelpCircle,
   Flame,
   Zap,
   Target,
   Award,
-  ShieldAlert,
   Gamepad2,
 } from 'lucide-react';
 import { CategoryId, DifficultyFilter, QuizSettings } from '../types';

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Clock,
-  CheckCircle2,
-  XCircle,
   ArrowRight,
   Flame,
   Volume2,
@@ -41,7 +39,6 @@ export const QuizView: React.FC<QuizViewProps> = ({
   const [bestStreak, setBestStreak] = useState(0);
   const [timeLeft, setTimeLeft] = useState(settings.timerSeconds || 15);
   const [isTimedOut, setIsTimedOut] = useState(false);
-  const [records, setRecords] = useState<UserAnswerRecord[]>([]);
 
   // Synchronous ref to prevent stale closures
   const recordsRef = useRef<UserAnswerRecord[]>([]);
@@ -116,7 +113,6 @@ export const QuizView: React.FC<QuizViewProps> = ({
       };
 
       recordsRef.current = [...recordsRef.current, answerRecord];
-      setRecords(recordsRef.current);
     },
     [hasAnswered, currentQuestion, currentScore, currentStreak, bestStreak, soundEnabled]
   );

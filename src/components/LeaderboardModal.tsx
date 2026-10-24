@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Trophy, X, RotateCcw, Crown, Medal, Calendar, Award } from 'lucide-react';
+import { Trophy, X, RotateCcw, Crown, Calendar, Award } from 'lucide-react';
 import { HighScoreRecord } from '../types';
 import { StoredStats } from '../utils/storage';
 
